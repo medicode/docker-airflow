@@ -84,7 +84,7 @@ RUN set -ex \
     && pip3 install celery==3.1.23 \
     && pip3 install https://github.com/docker/docker-py/archive/1.10.6.zip \
     && pip3 install airflow[celery,postgres,hive,hdfs,jdbc]==$AIRFLOW_VERSION \
-    && pip3 install https://github.com/medicode/incubator-airflow/archive/feature/add_working_dir.zip \
+    && pip3 install https://github.com/medicode/incubator-airflow/archive/feature/private_repos.zip \
     && apt-get remove --purge -yqq $buildDeps libpq-dev \
     && apt-get clean \
     && rm -rf \
