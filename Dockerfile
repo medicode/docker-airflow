@@ -73,7 +73,7 @@ RUN set -ex \
     && sudo apt-get update \
     && sudo apt-get -y --allow-unauthenticated install docker-engine nvidia-modprobe \
     && wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb \
-    && sudo dpkg -i /tmp/nvidia-docker*.deb
+    && sudo dpkg -i /tmp/nvidia-docker*.deb \
     && pip install -U pip setuptools wheel \
     && pip install Cython \
     && pip install pytz \
