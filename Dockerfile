@@ -52,8 +52,6 @@ RUN set -ex \
         netcat \
         locales \
         sudo \
-        python-software-properties \
-        software-properties-common \
         apt-transport-https \
         ca-certificates \
         vim \
