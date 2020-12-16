@@ -1,0 +1,15 @@
+Cython
+pytz
+pyOpenSSL
+pandas==0.23.4
+kubernetes==7.0.0
+ndg-httpsclient
+pyasn1
+marshmallow-sqlalchemy==0.17.0
+redis==3.3.11
+psycopg2
+psycopg2-binary
+'celery[redis]>=4.1.1,<4.2.0'
+'tornado<6.0.0'
+wtforms==2.2.1
+attrs==19.3.0
