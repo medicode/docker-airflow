@@ -65,23 +65,11 @@ RUN set -ex \
     && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
     && useradd -ms /bin/bash -d ${AIRFLOW_HOME} airflow \
     && pip install -U pip setuptools wheel \
-    && pip install Cython \
-    && pip install pytz \
-    && pip install pyOpenSSL \
-    && pip install pandas==0.23.4 \
-    && pip install kubernetes==7.0.0 \
-    && pip install ndg-httpsclient \
-    && pip install pyasn1 \
-    && pip install marshmallow-sqlalchemy==0.17.0 \
-    && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api]==$AIRFLOW_VERSION \
-    && pip install redis==3.3.11 \
-    && pip install psycopg2 \
-    && pip install psycopg2-binary \
-    && pip install 'celery[redis]>=4.1.1,<4.2.0' \
-    && pip install 'tornado<6.0.0' \
-    && pip install wtforms==2.2.1 \
-    && pip install attrs==19.3.0 \
-    && apt-get purge --auto-remove -yqq $buildDeps \
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api]==$AIRFLOW_VERSION
+
+
+RUN apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
     && rm -rf \
