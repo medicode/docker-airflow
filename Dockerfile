@@ -78,6 +78,7 @@ RUN set -ex \
     && pip install pyasn1 \
     && pip install marshmallow-sqlalchemy==0.17.0 \
     && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api]==$AIRFLOW_VERSION \
+    && pip install apache-airflow-providers-google \
     && pip install SQLAlchemy==1.3.23  \
     && pip install Flask-SQLAlchemy==2.4.4 \
     && pip install redis==3.3.11 \
