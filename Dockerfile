@@ -57,6 +57,7 @@ RUN set -ex \
         apt-utils \
         curl \
         rsync \
+        libpq5 \
         netcat \
         locales \
         git \
