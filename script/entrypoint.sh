@@ -82,7 +82,7 @@ case "$1" in
     fi
     exec airflow webserver
     ;;
-  worker|scheduler)
+  celery|worker|scheduler)
     # To give the webserver time to run initdb.
     sleep 10
     exec airflow "$@"
