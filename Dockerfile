@@ -42,7 +42,6 @@ RUN set -ex \
         libffi-dev \
         libblas-dev \
         liblapack-dev \
-        libpq-dev \
     ' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
