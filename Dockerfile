@@ -76,6 +76,9 @@ RUN set -ex \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install marshmallow-sqlalchemy==0.17.0 \
+    # These 2 flask versions need to be pinned to patch security vulns
+    && pip install flask-caching==1.10.1 \
+    && pip install flask-appbuilder==3.2.3 \
     && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api]==$AIRFLOW_VERSION \
     && pip install redis==3.3.11 \
     && pip install psycopg2 \
