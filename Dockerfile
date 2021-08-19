@@ -17,7 +17,7 @@ RUN apt-get update -yqq \
     && unattended-upgrade -v
 
 # Airflow
-ARG AIRFLOW_VERSION=1.10.2
+ARG AIRFLOW_VERSION=1.10.15
 ARG AIRFLOW_HOME=/usr/local/airflow
 
 # Define en_US.
@@ -57,6 +57,7 @@ RUN set -ex \
         apt-utils \
         curl \
         rsync \
+        libpq5 \
         netcat \
         locales \
         git \
@@ -77,6 +78,9 @@ RUN set -ex \
     && pip install pyasn1 \
     && pip install marshmallow-sqlalchemy==0.17.0 \
     && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api]==$AIRFLOW_VERSION \
+    && pip install apache-airflow-providers-google \
+    && pip install SQLAlchemy==1.3.23  \
+    && pip install Flask-SQLAlchemy==2.4.4 \
     && pip install redis==3.3.11 \
     && pip install psycopg2 \
     && pip install psycopg2-binary \
@@ -84,6 +88,7 @@ RUN set -ex \
     && pip install 'tornado<6.0.0' \
     && pip install wtforms==2.2.1 \
     && pip install attrs==19.3.0 \
+    && pip install apache-airflow-upgrade-check \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
@@ -96,6 +101,7 @@ RUN set -ex \
         /usr/share/doc-base
 
 COPY script/entrypoint.sh /entrypoint.sh
+ADD /webserver_config.py ${AIRFLOW_HOME}
 
 RUN chown -R airflow: ${AIRFLOW_HOME}
 
