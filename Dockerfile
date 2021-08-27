@@ -17,7 +17,7 @@ RUN apt-get update -yqq \
     && unattended-upgrade -v
 
 # Airflow
-ARG AIRFLOW_VERSION=1.10.2
+ARG AIRFLOW_VERSION=1.10.15
 ARG AIRFLOW_HOME=/usr/local/airflow
 
 # Define en_US.
@@ -42,7 +42,6 @@ RUN set -ex \
         libffi-dev \
         libblas-dev \
         liblapack-dev \
-        libpq-dev \
     ' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
@@ -51,6 +50,7 @@ RUN set -ex \
         build-essential \
         python3-pip \
         python3-requests \
+        libpq-dev \
         mysql-client \
         mysql-server \
         default-libmysqlclient-dev \
@@ -66,17 +66,20 @@ RUN set -ex \
     # TODO: consider upgrading Airflow to v2, unpinning pip from 20.2.4 (see below)
     # https://app.asana.com/0/0/1199634198820229/f
     && useradd -ms /bin/bash -d ${AIRFLOW_HOME} airflow \
-    && pip install -U pip==20.2.4 \
+    && pip install -U pip==21.2.3 \
     && pip install -U setuptools wheel \
     && pip install Cython \
     && pip install pytz \
     && pip install pyOpenSSL \
     && pip install pandas==0.23.4 \
-    && pip install kubernetes==7.0.0 \
+    && pip install kubernetes==17.17.0 \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install marshmallow-sqlalchemy==0.17.0 \
     && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api]==$AIRFLOW_VERSION \
+    # This flask-appbuilder version needs to be pinned to patch security vulns
+    && pip install flask-appbuilder==3.3.2 \
+    # Note: flask-caching <= 10.0.1 has a security vuln, but there's no newer version
     && pip install redis==3.3.11 \
     && pip install psycopg2 \
     && pip install psycopg2-binary \
