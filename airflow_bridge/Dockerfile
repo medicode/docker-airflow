@@ -82,7 +82,7 @@ RUN set -ex \
     # TODO: consider upgrading Airflow to v2, unpinning pip from 20.2.4 (see below)
     # https://app.asana.com/0/0/1199634198820229/f
     && useradd -ms /bin/bash -d ${AIRFLOW_HOME} airflow \
-    && pip install -U pip==21.2.3 \
+    && pip install -U pip==21.2.4 \
     && pip install -U setuptools wheel \
     && pip install Cython \
     && pip install pytz \
@@ -104,7 +104,7 @@ RUN set -ex \
     && pip install apache-airflow-upgrade-check \
     # This flask-appbuilder version needs to be pinned to patch security vulns
     && pip install flask-appbuilder==3.3.2 \
-    # Note: flask-caching <= 10.0.1 has a security vuln, but there's no newer version
+    # Note: flask-caching <= 1.10.1 has a security vuln, but there's no newer version
     && pip install attrs==19.3.0 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
