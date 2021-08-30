@@ -26,7 +26,7 @@ steps:
   waitFor:
     - airflow-bridge
 
-- id: airflow-bridge
+- id: airflow-bridge-security
   name: 'gcr.io/cloud-builders/docker'
   args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-bridge-security:latest", "--build-arg", "AIRFLOW_VERSION=1.10.15", "."]
   dir: airflow_bridge_security/

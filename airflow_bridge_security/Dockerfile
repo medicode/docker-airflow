@@ -104,7 +104,8 @@ RUN set -ex \
     && pip install apache-airflow-upgrade-check \
     # This flask-appbuilder version needs to be pinned to patch security vulns
     && pip install flask-appbuilder==3.3.2 \
-    # Note: flask-caching <= 10.0.1 has a security vuln, but there's no newer version
+    # Note: flask-caching <= 1.10.1 has a security vuln, but there's no newer version
+    && pip install flask-caching==1.3.3 \
     && pip install attrs==20.1.0 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
