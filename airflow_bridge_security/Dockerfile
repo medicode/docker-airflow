@@ -90,7 +90,7 @@ RUN set -ex \
     && pip install Flask-SQLAlchemy==2.4.4 \
     && pip install pyOpenSSL \
     && pip install pandas==0.23.4 \
-    && pip install kubernetes==17.17.0 \
+    && pip install kubernetes==7.0.1 \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install marshmallow-sqlalchemy==0.17.0 \
