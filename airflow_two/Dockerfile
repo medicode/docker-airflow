@@ -98,15 +98,14 @@ RUN set -ex \
     && pip install redis==3.3.11 \
     && pip install psycopg2 \
     && pip install psycopg2-binary \
-    && pip install 'celery[redis]>=4.1.1,<4.2.0' \
+    && pip install 'celery[redis]>=5.1.2' \
     && pip install 'tornado<6.0.0' \
     && pip install wtforms==2.2.1 \
     && pip install attrs==20.1.0 \
-    && pip install werkzeug==0.16.0 \
     # This flask-appbuilder version needs to be pinned to patch security vulns
     && pip install flask-appbuilder==3.3.2 \
     # Note: flask-caching <= 1.10.1 has a security vuln, but there's no newer version
-    && pip install flask-caching==1.3.3 \
+    && pip install flask-caching==1.10.1 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
