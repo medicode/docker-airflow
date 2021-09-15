@@ -18,6 +18,8 @@ RUN apt-get update -yqq \
 
 # Airflow
 ARG AIRFLOW_VERSION=2.1.3
+ARG PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
+ARG CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
 ARG AIRFLOW_HOME=/usr/local/airflow
 
 # Define en_US.
@@ -94,7 +96,7 @@ RUN set -ex \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install marshmallow-sqlalchemy==0.17.0 \
-    && pip install apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google]==$AIRFLOW_VERSION \
+    && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
     && pip install redis==3.3.11 \
     && pip install psycopg2 \
     && pip install psycopg2-binary \
