@@ -93,7 +93,7 @@ RUN set -ex \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     # && pip install marshmallow-sqlalchemy==0.17.0 \
-    && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
+    && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google, redis]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
     # && pip install redis==3.3.11 \
     && pip install psycopg2 \
     && pip install pandas==0.23.4 \
