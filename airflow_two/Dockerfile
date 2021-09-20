@@ -18,7 +18,10 @@ RUN apt-get update -yqq \
 
 # Airflow
 ARG AIRFLOW_VERSION=2.1.3
+<<<<<<< HEAD
 ARG CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-3.6.txt"
+=======
+>>>>>>> ac6f32cca09ae95f948926450147d0ea5a97f32f
 ARG AIRFLOW_HOME=/usr/local/airflow
 
 # Define en_US.
@@ -88,7 +91,7 @@ RUN set -ex \
     && pip install Cython \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
-    && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google, redis]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
+    && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google,redis]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
     && pip install psycopg2 \
     && pip install pandas==0.23.4 \
     && pip install kubernetes==7.0.1 \
