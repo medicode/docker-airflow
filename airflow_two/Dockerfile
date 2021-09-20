@@ -86,27 +86,12 @@ RUN set -ex \
     && pip install -U pip==21.2.4 \
     && pip install -U setuptools wheel \
     && pip install Cython \
-    # && pip install pytz \
-    # && pip install SQLAlchemy==1.3.23  \
-    # && pip install Flask-SQLAlchemy==2.4.4 \
-    # && pip install pyOpenSSL \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
-    # && pip install marshmallow-sqlalchemy==0.17.0 \
     && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google, redis]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
-    # && pip install redis==3.3.11 \
     && pip install psycopg2 \
     && pip install pandas==0.23.4 \
     && pip install kubernetes==7.0.1 \
-    # && pip install psycopg2-binary \
-    # && pip install 'celery[redis]>=5.1.2' \
-    # && pip install 'tornado<6.0.0' \
-    # && pip install wtforms==2.2.1 \
-    # && pip install attrs==20.1.0 \
-    # # This flask-appbuilder version needs to be pinned to patch security vulns
-    # && pip install flask-appbuilder==3.3.2 \
-    # # Note: flask-caching <= 1.10.1 has a security vuln, but there's no newer version
-    # && pip install flask-caching==1.10.1 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
