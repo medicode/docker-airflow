@@ -18,10 +18,7 @@ RUN apt-get update -yqq \
 
 # Airflow
 ARG AIRFLOW_VERSION=2.1.3
-<<<<<<< HEAD
 ARG CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-3.6.txt"
-=======
->>>>>>> ac6f32cca09ae95f948926450147d0ea5a97f32f
 ARG AIRFLOW_HOME=/usr/local/airflow
 
 # Define en_US.
