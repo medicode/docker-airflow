@@ -106,7 +106,7 @@ This can be used to scale to a multi node setup using docker swarm.
 
 If you want to run other airflow sub-commands, such as `list_dags` or `clear` you can do so like this:
 
-    docker run --rm -ti puckel/docker-airflow airflow list_dags
+    docker run --rm -ti puckel/docker-airflow airflow dags list
 
 or with your docker-compose set up like this:
 
