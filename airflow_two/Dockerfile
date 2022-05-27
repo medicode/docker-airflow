@@ -3,8 +3,8 @@
 # DESCRIPTION: Basic Airflow container
 # BUILD: docker build --rm -t puckel/docker-airflow .
 # SOURCE: https://github.com/puckel/docker-airflow
-
-FROM us.gcr.io/fathom-containers/debian-python3
+ARG FROM_TAG=latest
+FROM us.gcr.io/fathom-containers/debian-python3:${FROM_TAG}
 LABEL maintainer="Puckel_"
 
 # Never prompts the user for choices on installation/configuration of packages
@@ -87,10 +87,10 @@ RUN set -ex \
     && pip install -U setuptools wheel \
     && pip install Cython \
     && pip install ndg-httpsclient \
-    && pip install pyasn1 \
+    && pip install pyasn1 numpy==1.19.5\
+    && pip install pandas==1.1.5 \
     && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google,redis]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
     && pip install psycopg2 \
-    && pip install pandas==0.23.4 \
     && pip install kubernetes==7.0.1 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
