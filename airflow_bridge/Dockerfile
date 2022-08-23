@@ -94,7 +94,7 @@ RUN set -ex \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install marshmallow-sqlalchemy==0.17.0 \
-    && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api]==$AIRFLOW_VERSION \
+    && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,gcp_api,statsd]==$AIRFLOW_VERSION \
     && pip install redis==3.3.11 \
     && pip install psycopg2 \
     && pip install psycopg2-binary \
