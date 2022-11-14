@@ -4,7 +4,7 @@
 # BUILD: docker build --rm -t puckel/docker-airflow .
 # SOURCE: https://github.com/puckel/docker-airflow
 
-FROM us.gcr.io/fathom-containers/debian-python3
+FROM us.gcr.io/fathom-containers/debian-python3:3.7-dev
 LABEL maintainer="Puckel_"
 
 # Never prompts the user for choices on installation/configuration of packages
