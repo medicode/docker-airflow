@@ -87,7 +87,8 @@ RUN set -ex \
     && pip install -U setuptools wheel \
     && pip install Cython \
     && pip install ndg-httpsclient \
-    && pip install pyasn1 \
+    && pip install pyasn1 numpy==1.19.5\
+    && pip install pandas==1.1.5 \
     && pip install "apache-airflow[celery,postgres,apache.hive,jdbc,mysql,google,redis]==$AIRFLOW_VERSION" --constraint "${CONSTRAINT_URL}" \
     && pip install psycopg2 \
     && pip install kubernetes==7.0.1 \
