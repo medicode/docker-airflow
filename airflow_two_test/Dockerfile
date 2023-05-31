@@ -1,4 +1,4 @@
-ARG FROM_TAG=latest
+ARG FROM_TAG=parth
 FROM us.gcr.io/fathom-containers/docker-airflow-two:${FROM_TAG}
 USER root
 COPY requirements.txt /usr/local/airflow
