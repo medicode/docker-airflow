@@ -8,7 +8,7 @@ steps:
 
 # - id: airflow-two-test
 #   name: 'gcr.io/cloud-builders/docker'
-#   args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-experiment-two-test:latest", "."]
+#   args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-experiment-test:latest", "."]
 #   dir: airflow_two_test/
 #   waitFor:
 #     - airflow-two
@@ -16,5 +16,5 @@ steps:
 logsBucket: fathom-containers-cloud-build-logs-36tugmiz
 
 images:
-  - us.gcr.io/$PROJECT_ID/docker-airflow-experiment-two
-  # - us.gcr.io/$PROJECT_ID/docker-airflow-experiment-two-test
+  - us.gcr.io/$PROJECT_ID/docker-airflow-two-experiment
+  # - us.gcr.io/$PROJECT_ID/docker-airflow-two-experiment-test
