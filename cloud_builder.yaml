@@ -2,13 +2,13 @@ timeout: 3600s
 steps:
 - id: airflow-two-experiment
   name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-experiment:2.3.1", "."]
+  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-experiment:2.1.3", "."]
   dir: airflow_two/
   waitFor: ['-']
 
 # - id: airflow-two-test
 #   name: 'gcr.io/cloud-builders/docker'
-#   args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-experiment-test:2.3.1", "."]
+#   args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-experiment-test:2.1.3", "."]
 #   dir: airflow_two_test/
 #   waitFor:
 #     - airflow-two
