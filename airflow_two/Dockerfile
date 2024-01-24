@@ -1,4 +1,4 @@
-# VERSION 2.1.3
+# VERSION 2.3.1
 # AUTHOR: Matthieu "Puckel_" Roisil
 # DESCRIPTION: Basic Airflow container
 # BUILD: docker build --rm -t puckel/docker-airflow .
@@ -17,7 +17,7 @@ RUN apt-get update -yqq \
     && unattended-upgrade -v
 
 # Airflow
-ARG AIRFLOW_VERSION=2.1.3
+ARG AIRFLOW_VERSION=2.3.1
 ARG CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-3.7.txt"
 ARG AIRFLOW_HOME=/usr/local/airflow
 
@@ -80,8 +80,6 @@ RUN set -ex \
     && sed -i 's/^# en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/g' /etc/locale.gen \
     && locale-gen \
     && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
-    # TODO: consider upgrading Airflow to v2, unpinning pip from 20.2.4 (see below)
-    # https://app.asana.com/0/0/1199634198820229/f
     && useradd -ms /bin/bash -d ${AIRFLOW_HOME} airflow \
     && pip install -U pip==21.2.4 \
     && pip install -U setuptools wheel \
