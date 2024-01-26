@@ -4,7 +4,7 @@
 # BUILD: docker build --rm -t puckel/docker-airflow .
 # SOURCE: https://github.com/puckel/docker-airflow
 ARG FROM_TAG=latest
-FROM us.gcr.io/fathom-containers/debian-python3:${FROM_TAG}
+FROM  us-docker.pkg.dev/fathom-containers/us.gcr.io/debian-python3:${FROM_TAG}
 LABEL maintainer="Puckel_"
 
 # Never prompts the user for choices on installation/configuration of packages
