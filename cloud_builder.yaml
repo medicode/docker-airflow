@@ -16,5 +16,5 @@ steps:
 logsBucket: fathom-containers-cloud-build-logs-36tugmiz
 
 images:
-  - us.gcr.io/$PROJECT_ID/docker-airflow-two
-  - us.gcr.io/$PROJECT_ID/docker-airflow-two-test
+  - us-docker.pkg.dev/fathom-containers/us.gcr.io/docker-airflow-two
+  - us-docker.pkg.dev/fathom-containers/us.gcr.io/docker-airflow-two-test
