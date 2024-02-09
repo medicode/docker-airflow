@@ -1,4 +1,4 @@
-# VERSION 2.5.0
+# VERSION 2.6.0
 # AUTHOR: Matthieu "Puckel_" Roisil
 # DESCRIPTION: Basic Airflow container
 # BUILD: docker build --rm -t puckel/docker-airflow .
@@ -17,7 +17,7 @@ RUN apt-get update -yqq \
     && unattended-upgrade -v
 
 # Airflow
-ARG AIRFLOW_VERSION=2.5.0
+ARG AIRFLOW_VERSION=2.6.0
 ARG CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-3.7.txt"
 ARG AIRFLOW_HOME=/usr/local/airflow
 
