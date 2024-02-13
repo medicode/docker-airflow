@@ -81,7 +81,7 @@ case "$1" in
     ;;
   celery|worker|scheduler)
     # To give the webserver time to run initdb.
-    sleep 10
+    sleep 120
     exec airflow "$@"
     ;;
   flower)
