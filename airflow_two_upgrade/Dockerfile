@@ -107,6 +107,7 @@ COPY /entrypoint.sh /entrypoint.sh
 ADD /webserver_config.py ${AIRFLOW_HOME}
 
 RUN chown -R airflow: ${AIRFLOW_HOME}
+RUN chown -R airflow: /root/
 
 EXPOSE 8080 5555 8793
 
