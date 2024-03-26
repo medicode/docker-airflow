@@ -2,26 +2,26 @@ timeout: 3600s
 steps:
 - id: airflow-two
   name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two:latest", "."]
+  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two:3.8", ".", "--build-arg", "FROM_TAG=3.8"]
   dir: airflow_two/
   waitFor: ['-']
 
 - id: airflow-two-test
   name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-test:latest", "."]
+  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-test:3.8", ".", "--build-arg", "FROM_TAG=3.8"]
   dir: airflow_two_test/
   waitFor:
     - airflow-two
 
 - id: airflow-two-upgrade
   name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-upgrade:latest", "."]
+  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-upgrade:3.8", ".", "--build-arg", "FROM_TAG=3.8"]
   dir: airflow_two_upgrade/
   waitFor: ['-']
 
 - id: airflow-two-upgrade-test
   name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-upgrade-test:latest", "."]
+  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-upgrade-test:3.8", ".", "--build-arg", "FROM_TAG=3.8"]
   dir: airflow_two_upgrade_test/
   waitFor:
     - airflow-two-upgrade
