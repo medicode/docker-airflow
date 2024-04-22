@@ -8,7 +8,7 @@ steps:
 
 - id: airflow-two-upgrade
   name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-upgrade:test-airflow-3.8", "."]
+  args: ["build", "-t", "us.gcr.io/$PROJECT_ID/docker-airflow-two-upgrade:airflow-3.8", "."]
   dir: airflow_two_upgrade/
   waitFor: ['-']
 
