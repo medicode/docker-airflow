@@ -16,6 +16,6 @@ function build_and_push() {
 }
 
 build_and_push docker-airflow-two airflow_two
-#build_and_push docker-airflow-two-test airflow_two_test
-#build_and_push docker-airflow-two-upgrade airflow_two_upgrade
-#build_and_push docker-airflow-two-upgrade-test airflow_two_upgrade_test
+build_and_push docker-airflow-two-test airflow_two_test
+build_and_push docker-airflow-two-upgrade airflow_two_upgrade
+build_and_push docker-airflow-two-upgrade-test airflow_two_upgrade_test
