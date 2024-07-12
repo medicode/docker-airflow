@@ -3,7 +3,7 @@
 set -euxo pipefail
 
 repository=us.gcr.io/fathom-containers
-tag=wojtek-test
+tag=latest
 
 function build_and_push() {
     image=$1
