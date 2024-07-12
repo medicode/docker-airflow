@@ -3,10 +3,7 @@
 set -euxo pipefail
 
 repository=us.gcr.io/fathom-containers
-tag=arm
-
-IMAGES=(docker-airflow-two docker-airflow-two-test docker-airflow-two-upgrade docker-airflow-two-upgrade-test)
-FOLDERS=(airflow_two airflow_two_test airflow_two_upgrade airflow_two_upgrade_test)
+tag=wojtek-test
 
 function build_and_push() {
     image=$1
