@@ -56,22 +56,21 @@ RUN set -ex \
         default-mysql-server \
         default-libmysqlclient-dev \
         apt-utils \
-        python-dev \
         libsasl2-dev \
         gcc \
         curl \
         rsync \
         libpq5 \
-        netcat \
+        netcat-traditional \
         locales \
         git \
         freetds-bin \
         krb5-user \
         ldap-utils \
-        libffi6 \
+        libffi8 \
         libsasl2-2 \
         libsasl2-modules \
-        libssl1.1 \
+        libssl3 \
         locales  \
         lsb-release \
         sasl2-bin \
