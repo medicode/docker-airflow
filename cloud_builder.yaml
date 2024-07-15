@@ -1,7 +1,7 @@
 timeout: 3600s
 
 substitutions:
-  _IMAGE_TAG: "wojtek-test"
+  _IMAGE_TAG: "latest"
 
 steps:
 - id: airflow-two
