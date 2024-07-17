@@ -92,6 +92,7 @@ RUN set -ex \
     && pip install google-cloud-logging==1.11.0 \
     && pip install retrying==1.3.3 \
     && pip install attrs==23.2.0 \
+    && pip install typing_extensions==4.7.1 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
