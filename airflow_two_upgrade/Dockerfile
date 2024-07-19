@@ -82,7 +82,7 @@ RUN set -ex \
     # TODO: consider upgrading Airflow to v2, unpinning pip from 20.2.4 (see below)
     # https://app.asana.com/0/0/1199634198820229/f
     && useradd -ms /bin/bash -d ${AIRFLOW_HOME} airflow \
-    && pip install -U pip==21.2.4 \
+    && pip install -U pip==24.0 \
     && pip install -U setuptools wheel \
     && pip install Cython \
     && pip install ndg-httpsclient \
