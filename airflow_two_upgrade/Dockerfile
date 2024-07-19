@@ -83,7 +83,7 @@ RUN set -ex \
     # https://app.asana.com/0/0/1199634198820229/f
     && useradd -ms /bin/bash -d ${AIRFLOW_HOME} airflow \
     && pip install -U pip==24.0 \
-    && pip install -U setuptools wheel \
+    && pip install -U setuptools==70.3.0 \
     && pip install Cython \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
